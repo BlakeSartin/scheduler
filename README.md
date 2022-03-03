@@ -14,21 +14,21 @@ Install dependencies with `npm install`.
 ## Dependencies
 Interview Scheduler requires Node.js and Postgresalong with the following NPM packages!
 
-react
-react-dom
-react-scripts
-axios
-classnames
-normalize.css
+-react
+-react-dom
+-react-scripts
+-axios
+-classnames
+-normalize.css
 
 ## Development Dependencies
 The following NPM packages are used for development:
 
-react-test-renderer
-prop-types
-node-sass
-cypress
-eslint-plugin-cypress
+-react-test-renderer
+-prop-types
+-node-sass
+-cypress
+-eslint-plugin-cypress
 
 ## Running Webpack Development Server
 
