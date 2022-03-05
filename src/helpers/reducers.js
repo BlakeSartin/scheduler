@@ -1,19 +1,17 @@
-const SET_DAY = "SET_DAY";
-const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
-const SET_INTERVIEW = "SET_INTERVIEW";
-const CANCEL_INTERVIEW = "CANCEL_INTERVIEW"
-const EDIT_INTERVIEW = "EDIT_INTERVIEW"
-
+import {SET_DAY, SET_APPLICATION_DATA, SET_INTERVIEW, CANCEL_INTERVIEW, EDIT_INTERVIEW} from "hooks/useApplicationData"
 
 
 
 function numOfSpots (increment, state) {
+  console.log("spots")
   let stateDay = state.days.find((day) => day.name === state.day);
   let newDay = { ...stateDay, spots: stateDay.spots + increment };
   return state.days.map((day) => (day.name === state.day ? newDay : day));
 };
 
 export function reducer(state, action) {
+  console.log("action",action)
+  console.log("state", state)
   switch (action.type) {
     case SET_DAY:
       return {
@@ -23,6 +21,7 @@ export function reducer(state, action) {
     case SET_APPLICATION_DATA:
       return {
         ...state,
+        day: action.value.day,
         days: action.value.days,
         appointments: action.value.appointments,
         interviewers: action.value.interviewers,

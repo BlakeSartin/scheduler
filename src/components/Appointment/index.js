@@ -73,7 +73,7 @@ export default function Appointment(props) {
           }}
         />
       )}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview &&(
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
@@ -95,7 +95,7 @@ export default function Appointment(props) {
       )}
       {mode === EDIT && (
         <Form
-          interviewerId={props.interview.interviewer.id}
+          interviewer={props.interview ? props.interview.interviewer.id : props.interviewer}
           student={props.interview.student}
           interviewers={props.interviewers}
           onCancel={() => back()}

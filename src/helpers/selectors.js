@@ -1,6 +1,7 @@
 
 
 export const getAppointmentsForDay = (state, day) => {
+  console.log("here", state)
   try {
     return state.days
       .find((stateDay) => stateDay.name === day)
