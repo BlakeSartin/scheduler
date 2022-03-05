@@ -27,7 +27,7 @@ export const getInterviewersForDay = (state, day) => {
 export function getInterview(state, interview) {
   let newObject = {};
   if (interview) {
-    newObject = interview;
+    newObject = {...interview};
     newObject.interviewer = state.interviewers[interview.interviewer];
   } else {
     newObject = null;
