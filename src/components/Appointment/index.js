@@ -10,6 +10,7 @@ import Confirm from "./Confirm";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
+  console.log("props", props)
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -24,6 +25,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  //Saves current interview and takes student name and interview as params
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -38,10 +40,12 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_SAVE, true));
   }
   
+  //Confirms and transitions 
   function confirm() {
     transition(CONFIRM);
   }
 
+  //Edits an appointment and take student name and interviewer as params
   function edit(name, interviewer) {
     transition(SAVING);
     props
@@ -51,6 +55,7 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_SAVE, true))
   }
 
+  // Deletes interview and takes student name and interview as params
   function cancel(name, interviewer) {
     transition(DELETING, true);
     props

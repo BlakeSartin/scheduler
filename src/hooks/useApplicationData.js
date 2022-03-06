@@ -19,6 +19,7 @@ export function useApplicationData() {
     interviewers: {},
   });
 
+  //Makes axios call to database to book an interview, uses id and interview as params
   function bookInterview(id, interview) {
 
     return axios
@@ -31,6 +32,7 @@ export function useApplicationData() {
       });
   }
 
+  //Makes axios call to database to delete an interview, uses id and interview as params
   function cancelInterview(id, interview) {
     return axios
     .delete(`/api/appointments/${id}`)
@@ -39,6 +41,7 @@ export function useApplicationData() {
     });
   }
 
+  //Makes axios call to database to edit existing interview, uses id and interview as params
   function editInterview(id, interview) {
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       dispatch({ type: EDIT_INTERVIEW, value: {id, interview}});

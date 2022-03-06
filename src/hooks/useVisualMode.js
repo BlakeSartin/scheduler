@@ -11,11 +11,9 @@ export default function useVisualMode(initial) {
     }
   }
   function back() {
-    setHistory(prevHistory => {
-      const prevMode = prevHistory.pop()
-      setMode(prevMode)
-      return prevHistory.slice(0, prevHistory.length - 1)
-    })
+    history.pop()
+    setHistory(history)
+    setMode(history[history.length - 1])
   }
   return { mode, transition, back };
 }
